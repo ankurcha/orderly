@@ -34,8 +34,8 @@
 
 
   <properties>
-    <version.hbase>0.90.2</version.hbase>
-    <version.hadoop>0.20.2</version.hadoop>
+    <version.hbase>1.0.2</version.hbase>
+    <version.hadoop>2.5.1</version.hadoop>
   </properties>
 
   <dependencies>
@@ -51,12 +51,12 @@
     </dependency>
     <dependency>
       <groupId>org.apache.hadoop</groupId>
-      <artifactId>hadoop-core</artifactId>
+      <artifactId>hadoop-common</artifactId>
       <version>${version.hadoop}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.hbase</groupId>
-      <artifactId>hbase</artifactId>
+      <artifactId>hbase-common</artifactId>
       <version>${version.hbase}</version>
     </dependency>
     <dependency>
@@ -102,10 +102,15 @@
           </execution>
         </executions>
       </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.6</source>
+          <target>1.6</target>
+        </configuration>
+      </plugin>
     </plugins>
-
-    <sourceDirectory>src/java</sourceDirectory>
-    <testSourceDirectory>src/test</testSourceDirectory>
   </build>
 
 </project>

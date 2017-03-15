@@ -1,7 +1,6 @@
 ## TODO: 
 
 * documentation needs to be updated with what is changed with respect to the original Orderly library 
-* maven build
 * support for fixed and variable length byte arrays. Fixed length "as is", variable length using a BCD encoding.
 * support for explicitly disabling termination, for example useful when building row keys to be used for prefix searching.
 * ...
@@ -34,7 +33,7 @@ encoding format (i.e. IEEE-745 for doubles, UTF-8 for Strings). Each
 composed of many values. Complex types are themselves composed of other 
 complex types and primitive types.
  
-### Supported Primive Types
+### Supported Primitive Types
 We support a wide range of primitive (single-value) types:
 
   * Variable-Length Integers (Int, IntWritable, Long, LongWritable)

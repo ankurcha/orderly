@@ -20,16 +20,7 @@ package com.gotometrics.orderly.example;
 
 import java.math.BigDecimal;
 
-import com.gotometrics.orderly.BigDecimalRowKey;
-import com.gotometrics.orderly.DoubleRowKey;
-import com.gotometrics.orderly.FixedUnsignedLongRowKey;
-import com.gotometrics.orderly.IntegerRowKey;
-import com.gotometrics.orderly.Order;
-import com.gotometrics.orderly.RowKey;
-import com.gotometrics.orderly.StringRowKey;
-import com.gotometrics.orderly.StructRowKey;
-import com.gotometrics.orderly.StructBuilder;
-import com.gotometrics.orderly.StructIterator;
+import com.gotometrics.orderly.*;
 
 import org.apache.hadoop.hbase.io.ImmutableBytesWritable;
 
@@ -67,12 +58,12 @@ public class StructExample
         fin.serialize(new Object[] { 293, new BigDecimal("2934"), null }).length);
 
     /* Force termination */
-    fin.setTermination(true);
+    fin.setTermination(Termination.MUST);
     System.out.println("mustTerminate struct (293, 2934, hi) length - " + 
         fin.serialize(new Object[] { 293, new BigDecimal("2934"), "hi" }).length);
     System.out.println("mustTerminate struct (293, 2934, null) length - " + 
         fin.serialize(new Object[] { 293, new BigDecimal("2934"), null }).length);
-    fin.setTermination(false);
+    fin.setTermination(Termination.SHOULD_NOT);
 
     fin.setOrder(Order.DESCENDING);
     System.out.println("struct DESC (293, 2934, hi) length - " + 
