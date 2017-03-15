@@ -63,7 +63,7 @@ public class StructExample
         fin.serialize(new Object[] { 293, new BigDecimal("2934"), "hi" }).length);
     System.out.println("mustTerminate struct (293, 2934, null) length - " + 
         fin.serialize(new Object[] { 293, new BigDecimal("2934"), null }).length);
-    fin.setTermination(Termination.SHOULD_NOT);
+    fin.setTermination(Termination.AUTO);
 
     fin.setOrder(Order.DESCENDING);
     System.out.println("struct DESC (293, 2934, hi) length - " + 
